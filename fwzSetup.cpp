@@ -1,4 +1,3 @@
-
 #include "fwzSetup.h"
 #include "resource.h"
 
@@ -29,6 +28,9 @@ BOOL CALLBACK DlgFunc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
         
 /*** You can use this following line to select only certain aspect ratios ***/
 //        if ((d.dmPelsWidth * 3) / 4 != d.dmPelsHeight) continue;
+
+/*** You can use this following line to avoid "rotated" pictures on e.g. laptops ***/
+//        if (d.dmDisplayOrientation != DMDO_DEFAULT) continue;
 
         if (d.dmBitsPerPel != setupcfg->scrBPP) continue;
         if (!nRes || ress[nRes-1].w != d.dmPelsWidth || ress[nRes-1].h != d.dmPelsHeight) {
