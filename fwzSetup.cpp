@@ -42,9 +42,11 @@ BOOL CALLBACK DlgFunc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
         }
       }
       
+      int s = nRes - 1;
       for (i=0; i<nRes; i++)
         if (ress[i].w==setupcfg->scrWidth && ress[i].h==setupcfg->scrHeight)
-          SendDlgItemMessage(hWnd, IDC_RESOLUTION, CB_SETCURSEL, i, 0);
+          s = i;
+      SendDlgItemMessage(hWnd, IDC_RESOLUTION, CB_SETCURSEL, s, 0);
 
       if (!setupcfg->nWindowed) {
         SendDlgItemMessage(hWnd, IDC_FULLSCREEN, BM_SETCHECK, 1, 1);
